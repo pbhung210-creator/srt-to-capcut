@@ -1,0 +1,39 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Cài .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore
+        run: dotnet restore SrtCapcut.sln
+
+      - name: Chạy unit tests
+        run: dotnet test SrtCapcut.sln -c Release --no-restore
+
+      - name: Publish EXE Windows x64 (self-contained, 1 file)
+        run: >
+          dotnet publish src/SrtCapcut.App/SrtCapcut.App.csproj
+          -c Release -r win-x64 --self-contained true
+          /p:PublishSingleFile=true
+          /p:IncludeNativeLibrariesForSelfExtract=true
+          -o publish
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: SRT_to_CapCut-win-x64
+          path: publish/SRT_to_CapCut.exe
+          if-no-files-found: error
