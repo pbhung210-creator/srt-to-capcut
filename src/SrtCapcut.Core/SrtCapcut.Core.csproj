@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>SrtCapcut.Core</RootNamespace>
+    <AssemblyName>SrtCapcut.Core</AssemblyName>
+    <Version>1.0.0</Version>
+    <Description>Thư viện lõi: đọc SRT, quét ảnh, mapping timeline, phân tích template và sinh dự án CapCut.</Description>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>SRT_to_CapCut</AssemblyName>
+    <RootNamespace>SrtCapcut.App</RootNamespace>
+    <Version>1.0.0</Version>
+    <Description>SRT to CapCut Auto Timeline - tự động tạo timeline CapCut từ file SRT và thư mục ảnh.</Description>
+    <!-- Build trên Windows (xem .github/workflows/build-windows.yml) -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SrtCapcut.Core\SrtCapcut.Core.csproj" />
+  </ItemGroup>
+
+</Project>
